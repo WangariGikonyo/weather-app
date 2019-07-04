@@ -10,7 +10,7 @@ class FiveDays extends React.Component{
   render() {
     const { forecastdays } = this.props;
     return (
-      <div>
+      <div className='five-days'>
           {forecastdays &&
             forecastdays.map((day, idx) => {
               return <EachDay day={day.day} key={idx} />;

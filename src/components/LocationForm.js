@@ -3,10 +3,9 @@ import React from 'react';
 class LocationForm extends React.Component{
   render(){
     return(
-      <div>
+      <div className='form'>
         <form onSubmit={this.props.getWeather}>
-          <input type='text' name='country' placeholder='country' />
-          <input type='text' name='city' placeholder='city'/>
+          <input type='text' name='city' placeholder='which city?'/>
           <button>check weather</button>
         </form>
       </div>

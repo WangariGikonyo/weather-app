@@ -3,6 +3,7 @@ import Heading from './components/Heading';
 import LocationForm from './components/LocationForm';
 import Weather from './components/Weather';
 import FiveDays from './components/FiveDays';
+import { Row, Col} from 'antd';
 import './App.css';
 
 const API_KEY = 'c9ff504cde8549e886991433190407 ';
@@ -21,12 +22,12 @@ class App extends React.Component{
   getWeather = async(e)=>{
     e.preventDefault();
     const city = e.target.elements.city.value;
-    const country = e.target.elements.country.value;
+
 
     const api = await fetch(`http://api.apixu.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=5
 `);
     const data = await api.json();
-    if(city && country){
+    if(city){
       console.log(data);
       this.setState({
         temperature:data.current.temp_c,
@@ -57,16 +58,23 @@ class App extends React.Component{
     return(
       <div>
         <Heading />
-        <LocationForm getWeather={this.getWeather} />
-        <Weather
-          temperature={this.state.temperature}
-          city = {this.state.city}
-          country = {this.state.country}
-          humidity={this.state.humidity}
-          description={this.state.description}
-          icon={this.state.icon}
-          error={this.state.error}
-        />
+        <Row>
+          <Col span={12}>
+            <LocationForm getWeather={this.getWeather} />
+          </Col>
+          <Col span={12}>
+            <Weather
+              temperature={this.state.temperature}
+              city = {this.state.city}
+              country = {this.state.country}
+              humidity={this.state.humidity}
+              description={this.state.description}
+              icon={this.state.icon}
+              error={this.state.error}
+            />
+          </Col>
+        </Row>
+
         <FiveDays
           forecastdays={this.state.forecastdays}
         />

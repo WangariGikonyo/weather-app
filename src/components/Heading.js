@@ -1,4 +1,5 @@
 import React from 'react';
+import './Landing.css';
 
 class Heading extends React.Component{
   render(){

@@ -1,0 +1,44 @@
+body{
+  background: #E3E3E3;
+}
+h1{text-align: center;}
+.form{
+}
+form{
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  background: #FCAA3D;
+  height: 200px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+}
+input{
+  width:100%;
+  padding-left: 20px;
+  border-top: none;
+  background:none;
+  border-left: none;
+  border-right: none
+}
+button{
+  margin-top: 30px;
+  height: 30px;
+border: none;
+border-radius: 15px;
+background: yellow;
+color: white;
+font-weight: 600;
+}
+.weather{
+  background: red;
+  text-align: right;
+}
+.five-days{
+  background: yellow
+}
+.each{
+  display: flex;
+}

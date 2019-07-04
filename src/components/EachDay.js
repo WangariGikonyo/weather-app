@@ -10,7 +10,7 @@ class EachDay extends React.Component{
    const {forecastday} = this.props;
    if (!day) return null;
    return (
-     <div>
+     <div className='each'>
        <div>{day.avgtemp_c}°</div>
        <div>{day.condition.text}</div>
        <div>
