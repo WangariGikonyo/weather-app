@@ -2,6 +2,7 @@ import React from 'react';
 import Heading from './components/Heading';
 import LocationForm from './components/LocationForm';
 import Weather from './components/Weather';
+import FiveDays from './components/FiveDays';
 import './App.css';
 
 const API_KEY = 'c9ff504cde8549e886991433190407 ';
@@ -15,13 +16,14 @@ class App extends React.Component{
     icon:undefined,
     error:undefined,
     day:undefined,
+    forecastdays:undefined,
   }
   getWeather = async(e)=>{
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
 
-    const api = await fetch(`http://api.apixu.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=6
+    const api = await fetch(`http://api.apixu.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=5
 `);
     const data = await api.json();
     if(city && country){
@@ -33,6 +35,7 @@ class App extends React.Component{
         description:data.current.condition.text,
         day:data.current.is_day,
         icon:data.current.condition.icon,
+        forecastdays:data.forecast.forecastday,
         error:''
       })
     }else{
@@ -63,6 +66,9 @@ class App extends React.Component{
           description={this.state.description}
           icon={this.state.icon}
           error={this.state.error}
+        />
+        <FiveDays
+          forecastdays={this.state.forecastdays}
         />
       </div>
     );
