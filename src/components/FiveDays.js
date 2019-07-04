@@ -1,5 +1,5 @@
 import React from 'react';
-import EachDay from '/home/somethinginc/Documents/practicals/weather-app/src/components/EachDay.js';
+import EachDay from './EachDay.js';
 
 
 class FiveDays extends React.Component{
@@ -12,8 +12,8 @@ class FiveDays extends React.Component{
     return (
       <div className='five-days'>
           {forecastdays &&
-            forecastdays.map((day, idx) => {
-              return <EachDay day={day.day} key={idx} />;
+            forecastdays.map((day, index) => {
+              return <EachDay fday={day} key={index} />;
             })}
       </div>
     );

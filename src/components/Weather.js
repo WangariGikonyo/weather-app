@@ -3,6 +3,7 @@ import React from 'react';
 const Weather = (props)=>{
     return(
       <div className='weather'>
+      {props.date && <p>{props.date} </p>}
       {props.city && props.country && <p>Location:{props.country},{props.city}</p>}
       {props.temperature && <p>temperature:{props.temperature}°</p>}
       {props.humidity && <p>Humidity:{props.humidity}</p>}
