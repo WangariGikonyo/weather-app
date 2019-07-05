@@ -25,7 +25,7 @@ class LandingPage extends React.Component{
     const city = e.target.elements.city.value;
 
 
-    const api = await fetch(`http://api.apixu.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=4
+    const api = await fetch(`https://api.apixu.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=4
 `);
     const data = await api.json();
     if(city){
