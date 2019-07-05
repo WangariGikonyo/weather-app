@@ -56,25 +56,22 @@ class App extends React.Component{
   render(){
     return(
       <div>
+        <div class='main'>
         <div>
-          <Heading />
+          <Weather
+            temperature={this.state.temperature}
+            city = {this.state.city}
+            country = {this.state.country}
+            description={this.state.description}
+            icon={this.state.icon}
+            date={this.state.date}
+            error={this.state.error}
+          />
         </div>
-        <div class='row main'>
-          <div class='col-md-6'>
+          <div>
             <LocationForm getWeather={this.getWeather} />
           </div>
-          <div class='col-md-6'>
-            <Weather
-              temperature={this.state.temperature}
-              city = {this.state.city}
-              country = {this.state.country}
-              humidity={this.state.humidity}
-              description={this.state.description}
-              icon={this.state.icon}
-              date={this.state.date}
-              error={this.state.error}
-            />
-          </div>
+
         </div>
         <div className='five'>
           <FiveDays

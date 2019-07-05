@@ -11,14 +11,12 @@ class EachDay extends React.Component{
    if (!fday) return null;
    return (
      <div className='each row'>
-      <div class='col-md-3'>
-       <div>{new Date(fday.date_epoch*1000).toDateString()}°</div>
-         <div>{fday.day.avgtemp_c}°</div>
-       <div>{fday.day.condition.text}</div>
-       <div>
+       <div class='col-md-3'>{new Date(fday.date_epoch*1000).toDateString()}</div>
+        <div class='col-md-3'>{fday.day.avgtemp_c}°</div>
+       <div class='col-md-3'>{fday.day.condition.text}</div>
+       <div class='col-md-3 condition'>
          <img src={fday.day.condition.icon} />
        </div>
-      </div>
      </div>
    );
  }
