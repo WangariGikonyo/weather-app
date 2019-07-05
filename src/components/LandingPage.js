@@ -1,15 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
-import LandingPage from './components/LandingPage';
-import Heading from './components/Heading';
-import LocationForm from './components/LocationForm';
-import Weather from './components/Weather';
-import FiveDays from './components/FiveDays';
-import Look from './components/Look';
-import './App.css';
+import Heading from './Heading';
+import LocationForm from './LocationForm';
+import Weather from './Weather';
+import FiveDays from './FiveDays';
+import Look from './Look';
+
 
 const API_KEY = 'c9ff504cde8549e886991433190407 ';
-class App extends React.Component{
+class LandingPage extends React.Component{
   state={
     temperature:undefined,
     city:undefined,
@@ -59,16 +58,32 @@ class App extends React.Component{
   render(){
     return(
       <div>
-        <BrowserRouter>
-          <div>
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/look" component={Look} />
+          <div class='main'>
+            <div>
+              <Weather
+                temperature={this.state.temperature}
+                city = {this.state.city}
+                country = {this.state.country}
+                description={this.state.description}
+                icon={this.state.icon}
+                date={this.state.date}
+                error={this.state.error}
+              />
+            </div>
+            <div>
+              <LocationForm getWeather={this.getWeather} />
+            </div>
           </div>
-        </BrowserRouter>
+          <div className='five'>
+            <FiveDays
+              forecastdays={this.state.forecastdays}
+            />
+          </div>
       </div>
+
 
     );
   }
 }
 
-export default App;
+export default LandingPage;

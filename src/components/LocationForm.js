@@ -5,7 +5,7 @@ class LocationForm extends React.Component{
     return(
       <div className='form'>
         <form onSubmit={this.props.getWeather}>
-          <input type='text' name='city' placeholder='which city?'/>
+          <input type='text' name='city' placeholder='type Location....'/>
           <button>check weather</button>
         </form>
       </div>
